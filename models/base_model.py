@@ -17,6 +17,8 @@ class BaseModel:
             if k is 'created_at' or k is 'updated_at':
                 self.__dict__[k] = datetime.strptime(v, tform)
             else self.__dict__[k] = v
+            if key not in ['__class__']:
+                    setattr(self, k, v)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.today()
