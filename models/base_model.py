@@ -21,6 +21,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.today()
             self.updated_at = datetime.today()
+            models.storage.new(self)
 
     def save(self):
         """updates the public instance attribute updated_at with the
