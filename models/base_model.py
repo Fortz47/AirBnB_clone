@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """defines all common attributes/methods for other classes"""
-import models
 import uuid
 from datetime import datetime
 
@@ -8,11 +7,19 @@ from datetime import datetime
 class BaseModel:
     """defines all common attributes/methods for other classes"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """intialises BaseModel class"""
+
+        tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid.uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
+
+    if len(kwargs) != 0:
+        for k, v in kwargs.items():
+            if k is 'created_at' or k is 'updated_at':
+                self.__dict__[k] = datetime.strptime(v, tform)
+            else self.__dict__[k] = v
 
     def save(self):
         """updates the public instance attribute updated_at with the
