@@ -41,6 +41,10 @@ class BaseModel:
         result.append(Dict)
         return " ".join(result)
 
+    def __del__(self):
+        """deletes an instance"""
+        pass
+
     def save(self):
         from models.__init__ import storage
         """updates the public instance attribute

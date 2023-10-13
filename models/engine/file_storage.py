@@ -33,7 +33,10 @@ class FileStorage:
         from models.base_model import BaseModel
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+                content = f.read()
+                if not content:
+                    return
+                data = json.loads(content)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
                     Dict = {k: v for k, v in value.items() if k != '__class__'}
