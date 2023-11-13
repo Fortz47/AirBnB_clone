@@ -1,0 +1,50 @@
+section {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.filter {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+}
+
+button {
+    margin: 1% 0;
+    position: absolute;
+    right: 30px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    font-size: 18px;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+}
+
+.locations {
+    display: inline-block;
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDD;
+}
+
+.amenities {
+    display: inline-block;
+    height: 100%;
+    width: 25%;
+}
+
+h3 {
+    font-weight: 600;
+    margin: 16px 0 0 40px;
+}
+
+h4 {
+    font-weight: 400;
+    margin: 0 0 15px 40px;
+    font-size: 14px;
+}
